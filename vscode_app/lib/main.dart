@@ -94,24 +94,24 @@ class MyHomePage extends StatelessWidget {
               height: 52,
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "Password*", // 힌트 텍스트
+                  hintText: "Password*",
                   hintStyle: TextStyle(
                      color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
                   ),
                   prefixIcon: Padding(
-                    padding: EdgeInsets.only(left: 22, right: 12), // 아이콘과 텍스트 간격 조정
+                    padding: EdgeInsets.only(left: 22, right: 12),
                     child: Image.asset(
-                      'assets/img/Password.png', // 이미지 경로
+                      'assets/img/Password.png',
                       width: 24,
                       height: 24,
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0), // 라운드 테두리
+                    borderRadius: BorderRadius.circular(30.0),
                     borderSide: BorderSide(
                       color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
-                      width: 1.5, // 테두리 두께
+                      width: 1.5,
                     ),
                   ),
                 ),
@@ -168,9 +168,9 @@ class MyHomePage extends StatelessWidget {
                 Expanded(
                   child: Divider(
                     color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
-                    thickness: 1, // 선의 두께
-                    indent: 10, // 텍스트와의 간격
-                    endIndent: 20, // 오른쪽 여백
+                    thickness: 1,
+                    indent: 10,
+                    endIndent: 20,
                   ),
                 ),
               ],
@@ -198,14 +198,14 @@ class MyHomePage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(30.0), // 둥근 테두리
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                     child: Row(
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                           child: Image.asset(
-                            'assets/img/google.png', // 이미지 경로
+                            'assets/img/google.png',
                             width: 32,
                             height: 32,
                           ),
@@ -229,14 +229,14 @@ class MyHomePage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(30.0), // 둥근 테두리
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                     child: Row(
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                           child: Image.asset(
-                            'assets/img/facebook.png', // 이미지 경로
+                            'assets/img/facebook.png',
                             width: 32,
                             height: 32,
                           ),
@@ -260,14 +260,14 @@ class MyHomePage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(30.0), // 둥근 테두리
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                     child: Row(
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                           child: Image.asset(
-                            'assets/img/kakao_talk.png', // 이미지 경로
+                            'assets/img/kakao_talk.png',
                             width: 32,
                             height: 32,
                           ),
@@ -304,7 +304,7 @@ class MyHomePage extends StatelessWidget {
                       border: Border.all(
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(30.0), // 둥근 테두리
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                     child: Row(
                       children: [
@@ -339,7 +339,7 @@ class MyHomePage extends StatelessWidget {
                       border: Border.all(
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(30.0), // 둥근 테두리
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                     child: Row(
                       children: [
