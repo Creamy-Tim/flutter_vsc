@@ -1,5 +1,6 @@
 import 'package:codi/screens/input_profile.dart';
 import 'package:flutter/material.dart';
+import 'package:codi/icon/custom__icon__login_icons.dart';
 
 void main() {
   runApp(NewAccountScreen());
@@ -13,16 +14,41 @@ class NewAccountScreen extends StatefulWidget {
 }
 
 class _NewAccountScreenState extends State<NewAccountScreen> {
-  final _contentEditController = TextEditingController();
-
-  int passwordLength = 0;
+  final _controller = TextEditingController();
+  IconData _password_length = Icons.check; //기본 아이콘 수정 필요
+  String _password = "";
 
   @override
   void dispose() {
-    _contentEditController.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
+  void _updateText() {
+    setState(() {
+      _password = _controller.text;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      _updateText();
+      _updateIcon();
+    });
+  }
+
+  void _updateIcon() {
+  setState(() {
+    int password_length = _controller.text.length;
+    if (8 <= password_length && password_length <= 20) {
+      _password_length = Icons.check_box;
+    } else {
+      _password_length = Icons.check;
+    }
+  });
+}
 
 
   @override
@@ -96,6 +122,7 @@ class _NewAccountScreenState extends State<NewAccountScreen> {
               width: 320,
               height: 52,
               child: TextField(
+                controller: _controller,
                 decoration: InputDecoration(
                   hintText: "비밀번호 *",
                   hintStyle: TextStyle(
@@ -170,14 +197,23 @@ class _NewAccountScreenState extends State<NewAccountScreen> {
               margin: EdgeInsets.only(top: 2),
               width: 302,
               height: 16,
-              child: Text(
-                "8~20자",
-                  style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontSize: 11,
-                  fontFamily: 'Spoqa Han Sans Neo'),
-              ),
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    _password_length,
+                    size: 12,
+                    color: Theme.of(context).colorScheme.primary,
+                    ),
+                    Text(
+                    "8~20자",
+                      style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontSize: 11,
+                      fontFamily: 'Spoqa Han Sans Neo'),
+                  ),
+                ]
+              )
             ),
 
 
@@ -185,14 +221,23 @@ class _NewAccountScreenState extends State<NewAccountScreen> {
               margin: EdgeInsets.only(top: 8),
               width: 302,
               height: 16,
-              child: Text(
-                "문자, 숫자, 특수문자",
-                  style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontSize: 11,
-                  fontFamily: 'Spoqa Han Sans Neo'),
-              ),
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    Custom_Icon_Login.checkbox,
+                    size: 12,
+                    color: Theme.of(context).colorScheme.primary,
+                    ),
+                    Text(
+                    "문자, 숫자, 특수문자",
+                      style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontSize: 11,
+                      fontFamily: 'Spoqa Han Sans Neo'),
+                  ),
+                ]
+              )
             ),
 
 
