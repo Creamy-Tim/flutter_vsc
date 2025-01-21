@@ -1,5 +1,6 @@
 import 'package:codi/screens/new_account_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:codi/icon/custom__icon__login_icons.dart';
 
 void main() {
   runApp(Login());
@@ -26,27 +27,15 @@ class Login extends StatelessWidget {
                 fontFamily: 'Pretendard-Bold'),
               ),
             ),
-
-
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              child: Text("계정을 입력하거나 소셜 계정으로 로그인 하세요",
-                style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: Theme.of(context).colorScheme.onBackground,
-                fontSize: 14,
-                fontFamily: 'Pretendard-Bold'),
-              ),
-            ),
             
 
             Container(
-              margin: EdgeInsetsDirectional.only(top: 44),
+              margin: EdgeInsetsDirectional.only(top: 62),
               width: 320,
               height: 52,
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "Enter your Email*",
+                  hintText: "이메일 *",
                   hintStyle: TextStyle(
                      color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
                   ),
@@ -77,18 +66,17 @@ class Login extends StatelessWidget {
               height: 52,
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "Password*",
+                  hintText: "비밀번호 *",
                   hintStyle: TextStyle(
                      color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
                   ),
                   prefixIcon: Padding(
                     padding: EdgeInsets.only(left: 22, right: 12),
-                    child: Image.asset(
-                      'assets/img/Password.png',
-                      width: 24,
-                      height: 24,
+                    child: Icon(
+                      Custom_Icon_Login.password,
+                      size: 24,
                       color: Theme.of(context).colorScheme.onBackground,
-                    ),
+                    )
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
@@ -260,6 +248,7 @@ class Login extends StatelessWidget {
                 color: Theme.of(context).colorScheme.primary,
                 border: Border.all(
                   width: 1.5,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
                 borderRadius: BorderRadius.circular(30.0),
               ),
@@ -289,6 +278,7 @@ class Login extends StatelessWidget {
                 color: Theme.of(context).colorScheme.background,
                 border: Border.all(
                   width: 1.5,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 borderRadius: BorderRadius.circular(30.0),
               ),

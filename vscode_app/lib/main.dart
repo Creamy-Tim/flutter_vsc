@@ -44,6 +44,7 @@ class FirstScreen extends StatelessWidget {
                 color: Theme.of(context).colorScheme.primary,
                 border: Border.all(
                   width: 1.5,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 borderRadius: BorderRadius.circular(30.0),
               ),
