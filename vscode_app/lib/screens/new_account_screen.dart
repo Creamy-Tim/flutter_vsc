@@ -15,18 +15,23 @@ class NewAccountScreen extends StatefulWidget {
 
 class _NewAccountScreenState extends State<NewAccountScreen> {
   final _controller = TextEditingController();
+  final _controller2 = TextEditingController();
   IconData _password_length = Icons.check; //기본 아이콘 수정 필요
   String _password = "";
+  String _password2 = "";
+  String _passwordcheck = "비밀번호가 일치하지 않습니다";
 
   @override
   void dispose() {
     _controller.dispose();
+    _controller2.dispose();
     super.dispose();
   }
 
   void _updateText() {
     setState(() {
       _password = _controller.text;
+      _password2 = _controller2.text;
     });
   }
 
@@ -36,19 +41,47 @@ class _NewAccountScreenState extends State<NewAccountScreen> {
     _controller.addListener(() {
       _updateText();
       _updateIcon();
+      _checkPasswordMatch();
     });
+
+    _controller2.addListener(() {
+      _updateText();
+      _checkPasswordMatch();
+  });
   }
 
   void _updateIcon() {
+    setState(() {
+      int password_length = _controller.text.length;
+      if (8 <= password_length && password_length <= 20) {
+        _password_length = Icons.check_box;
+      } else {
+        _password_length = Icons.check;
+      }
+    });
+  }
+
+  void _checkPasswordMatch() {
   setState(() {
-    int password_length = _controller.text.length;
-    if (8 <= password_length && password_length <= 20) {
-      _password_length = Icons.check_box;
+    if (_password == _password2 && _password.isNotEmpty) {
+      _passwordcheck = "";
     } else {
-      _password_length = Icons.check;
+      _passwordcheck = "비밀번호가 일치하지 않습니다";
     }
   });
 }
+
+
+    void _updates() {
+    setState(() {
+      int password_length = _controller.text.length;
+      if (8 <= password_length && password_length <= 20) {
+        _password_length = Icons.check_box;
+      } else {
+        _password_length = Icons.check;
+      }
+    });
+  }
 
 
   @override
@@ -153,6 +186,7 @@ class _NewAccountScreenState extends State<NewAccountScreen> {
               width: 320,
               height: 52,
               child: TextField(
+                controller: _controller2,
                 decoration: InputDecoration(
                   hintText: "비밀번호 확인 *",
                   hintStyle: TextStyle(
@@ -183,7 +217,7 @@ class _NewAccountScreenState extends State<NewAccountScreen> {
               width: 302,
               height: 16,
               child: Text(
-                "비밀번호가 일치하지 않습니다",
+                  _passwordcheck,
                   style: TextStyle(
                   fontWeight: FontWeight.w400,
                   color: Theme.of(context).colorScheme.primary,
@@ -205,7 +239,7 @@ class _NewAccountScreenState extends State<NewAccountScreen> {
                     color: Theme.of(context).colorScheme.primary,
                     ),
                     Text(
-                    "8~20자",
+                      "8~20자",
                       style: TextStyle(
                       fontWeight: FontWeight.w400,
                       color: Theme.of(context).colorScheme.onBackground,
