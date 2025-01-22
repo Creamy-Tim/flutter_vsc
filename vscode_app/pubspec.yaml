@@ -78,6 +78,10 @@ flutter:
   - assets/img/google.png
   - assets/img/facebook.png
   - assets/img/kakao_talk.png
+  - assets/img/profile_photo.png
+  - assets/img/check_box.png
+  - assets/img/uncheck_box.png
+
     # 로그인페이지 이메일 아이콘
 
   # An image asset can refer to one or more resolution-specific "variants", see
